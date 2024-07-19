@@ -1,3 +1,11 @@
+// @before-stub-for-debug-begin
+#include <vector>
+#include <string>
+#include "commoncppproblem2.h"
+
+using namespace std;
+// @before-stub-for-debug-end
+
 /*
  * @lc app=leetcode.cn id=2 lang=cpp
  *
@@ -15,11 +23,35 @@
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
-class Solution {
+class Solution
+{
 public:
-    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
-
+    ListNode *addTwoNumbers(ListNode *l1, ListNode *l2)
+    {
+        int carry = 0;
+        ListNode *cur = nullptr;
+        ListNode *ans = nullptr;
+        for (int sum = 0, val = 0; l1 != nullptr || l2 != nullptr; l1 = l1 == nullptr ? nullptr : l1->next, l2 = l2 == nullptr ? nullptr : l2->next)
+        {
+            sum = (l1 == nullptr ? 0 : l1->val) + (l2 == nullptr ? 0 : l2->val) + carry;
+            val = sum % 10;
+            carry = sum / 10;
+            if (ans == nullptr)
+            {
+                ans = new ListNode(val);
+                cur = ans;
+            }
+            else
+            {
+                cur->next = new ListNode(val);
+                cur = cur->next;
+            }
+        }
+        if (carry == 1)
+        {
+            cur->next = new ListNode(1);
+        }
+        return ans;
     }
 };
 // @lc code=end
-
