@@ -86,7 +86,7 @@ int Array::GetSignByIndex(size_t index) {
 }
 
 void Array::AutoExtend() {
-    int *tmp = _data;  // 使用临时指针保存原来堆空间的首地址
+    int *tmp = _data; // 使用临时指针保存原来堆空间的首地址
     int *tmp1 = _sign;
     _data = new int[2 * _len];
     _sign = new int[2 * _len];
@@ -99,7 +99,7 @@ void Array::AutoExtend() {
     memcpy(_sign, tmp1, sizeof(int) * _len);
 
     _len *= 2;
-    //释放掉原来空间
+    // 释放掉原来空间
     delete[] tmp;
     delete[] tmp1;
 }
@@ -119,10 +119,10 @@ bool Array::Destroy() {
 void Array::Insert(size_t index, int val) {
     if (index >= _len) {
         AutoExtend();
-//        if (_item_num == _len) { // 数组已满 扩容，之后无论数组满不满都在
-//            AutoExtend();
-//        }
-//        _data[_item_num] = val;
+        //        if (_item_num == _len) { // 数组已满 扩容，之后无论数组满不满都在
+        //            AutoExtend();
+        //        }
+        //        _data[_item_num] = val;
         _data[index] = val;
         _sign[index] = 1;
     } else { // index <= _len
@@ -158,9 +158,3 @@ void Array::Insert(size_t index, int val) {
     }
     _item_num++;
 }
-
-
-
-
-
-

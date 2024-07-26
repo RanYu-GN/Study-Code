@@ -8,11 +8,11 @@
 #include <iostream>
 
 constexpr size_t init_len = 4;
-//const int index_error = 999999;
+// const int index_error = 999999;
 
 class Array {
 
-// 属性
+    // 属性
 private:
     static int _index_error; // 声明static成员变量
     int *_data;
@@ -20,7 +20,7 @@ private:
     size_t _len;
     size_t _item_num;
 
-// 方法
+    // 方法
 public:
     // 无参构造
     Array();
@@ -51,12 +51,11 @@ public:
 
     void Insert(size_t, int);
 
-//private:
-    // 自动扩容
+    // private:
+    //  自动扩容
     void AutoExtend();
 
 public:
-
 };
 
-#endif //CLASS_OBJECT_ARRAY_H
+#endif // CLASS_OBJECT_ARRAY_H

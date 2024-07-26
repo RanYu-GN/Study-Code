@@ -4,9 +4,9 @@
 #include <iostream>
 #include <vector>
 
-template <typename T>
+template<typename T>
 class BinaryTree {
-   public:
+public:
     explicit BinaryTree(const std::vector<T> &);
 
     ~BinaryTree();
@@ -20,13 +20,14 @@ class BinaryTree {
     // 递归后序遍历
     void PostorderTraversal(void) const;
 
-   private:
+private:
     struct Node {
         T value;
         Node *left;
         Node *right;
 
-        Node(const T &value) : value(value), left(nullptr), right(nullptr) {}
+        Node(const T &value) : value(value), left(nullptr), right(nullptr) {
+        }
     };
     Node *root;
 
@@ -42,7 +43,7 @@ class BinaryTree {
     void Postorder(Node *) const;
 };
 
-template <typename T>
+template<typename T>
 BinaryTree<T>::BinaryTree(const std::vector<T> &data) {
     if (data.empty()) {
         root = nullptr;
@@ -53,14 +54,13 @@ BinaryTree<T>::BinaryTree(const std::vector<T> &data) {
     root = BuildTree(data, 0);
 }
 
-template <typename T>
+template<typename T>
 BinaryTree<T>::~BinaryTree() {
     DeleteTree(root);
 }
 
-template <typename T>
-typename BinaryTree<T>::Node *BinaryTree<T>::BuildTree(
-    const std::vector<T> &data, int index) {
+template<typename T>
+typename BinaryTree<T>::Node *BinaryTree<T>::BuildTree(const std::vector<T> &data, int index) {
     if (index >= data.size()) {
         return nullptr;
     }
@@ -75,7 +75,7 @@ typename BinaryTree<T>::Node *BinaryTree<T>::BuildTree(
     return newNode;
 }
 
-template <typename T>
+template<typename T>
 void BinaryTree<T>::DeleteTree(Node *node) {
     if (node == nullptr) {
         return;
@@ -89,22 +89,22 @@ void BinaryTree<T>::DeleteTree(Node *node) {
     delete node;
 }
 
-template <typename T>
+template<typename T>
 void BinaryTree<T>::PreorderTraversal(void) const {
     Preorder(root);
 }
 
-template <typename T>
+template<typename T>
 void BinaryTree<T>::InorderTraversal(void) const {
     Inorder(root);
 }
 
-template <typename T>
+template<typename T>
 void BinaryTree<T>::PostorderTraversal(void) const {
     Postorder(root);
 }
 
-template <typename T>
+template<typename T>
 void BinaryTree<T>::Preorder(Node *node) const {
     if (node == nullptr) {
         return;
@@ -118,7 +118,7 @@ void BinaryTree<T>::Preorder(Node *node) const {
     Preorder(node->right);
 }
 
-template <typename T>
+template<typename T>
 void BinaryTree<T>::Inorder(Node *node) const {
     if (node == nullptr) {
         return;
@@ -134,7 +134,7 @@ void BinaryTree<T>::Inorder(Node *node) const {
     Inorder(node->right);
 }
 
-template <typename T>
+template<typename T>
 void BinaryTree<T>::Postorder(Node *node) const {
     if (node == nullptr) {
         return;

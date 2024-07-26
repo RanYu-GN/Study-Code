@@ -16,6 +16,5 @@ int main(int argc, char const *argv[]) {
     std::cout << "后序遍历：";
     binary_tree.PostorderTraversal();
     std::cout << std::endl;
-
     return 0;
 }

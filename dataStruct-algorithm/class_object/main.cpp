@@ -20,26 +20,25 @@ int main() {
     for (int i = 0; i < array.length(); ++i) {
         cout << array.GetItemByIndex(i) << " " << array.GetSignByIndex(i) << endl;
     }
-    cout << array.length() << " " << array.GetItemNum() << "\n***********************" <<endl;
+    cout << array.length() << " " << array.GetItemNum() << "\n***********************" << endl;
 
     array.Insert(0, 20);
     array.Insert(1, 20);
-//    array.Insert(2, 20);
-//    array.Insert(3, 30);
+    //    array.Insert(2, 20);
+    //    array.Insert(3, 30);
     array.Insert(4, 40);
     array.Insert(4, 50);
 
     array.Insert(1, 50);
     array.Insert(1, 10);
-//    array.Insert(1, 50);
-//    array.Insert(2, 20);
-//    array.Insert(7, 70);
+    //    array.Insert(1, 50);
+    //    array.Insert(2, 20);
+    //    array.Insert(7, 70);
 
     for (int i = 0; i < array.length(); ++i) {
         cout << array.GetItemByIndex(i) << " " << array.GetSignByIndex(i) << endl;
     }
     cout << array.length() << " " << array.GetItemNum() << endl;
-
 
     return 0;
 }
